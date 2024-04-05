@@ -1,4 +1,3 @@
-# Danny-Diner-Challenge
 
 # 🍽️ Danny's Diner - SQL Challenge
 

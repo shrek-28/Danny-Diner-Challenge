@@ -331,6 +331,7 @@ ORDER BY sales.customer_id;
 Result:
 
 | customer_id | customer_points |
+| --- | --- |
 | A | 1520 |
 | B | 1240 |
 

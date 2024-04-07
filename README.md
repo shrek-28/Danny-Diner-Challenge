@@ -108,7 +108,10 @@ VALUES
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/088363a4-c49a-4551-a2d1-77ff90c5d217)
+| product_id | product_name | price |
+| 1 | sushi | 10 |
+| 2 | curry | 15 |
+| 3 | ramen | 12 |
 
 3. Members Table
 ````sql
@@ -125,7 +128,9 @@ VALUES
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/c766c998-5bee-4809-a0e9-a0d953027e63)
+| customer_id | join_date |
+| A | 2021-01-07 |
+| B | 2021-01-09 |
 
 # Case Study Answers
 
@@ -139,7 +144,11 @@ group by sales.customer_id;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/aab675e1-7d8c-4838-ad79-2957f1833c0b)
+| customer_id | total_sales |
+|--- |--- |
+| A | 76 |
+| B | 74 |
+| C | 36 |
 
 2. How many days has each customer visited the restaurant?
 Query:
@@ -148,8 +157,11 @@ SELECT sales.customer_id, count(distinct order_date) from sales
 group by sales.customer_id;
 ````
 Result:
-
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/62e5173d-067b-4e3b-8145-5955fe499fea)
+|customer_id| count |
+| --- |--- |
+| A | 4 |
+| B | 6 |
+| C | 2 |
 
 3. What was the first item from the menu purchased by each customer?
 Query:
@@ -170,7 +182,13 @@ GROUP BY customer_id,
          product_name;
 ````
 Result:
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/e8fb0cb1-5b70-4df0-a18d-af5d02a3dbc8)
+
+| customer_id | product_name |
+| --- | --- |
+| A | curry |
+| A | sushi |
+| B | curry |
+| C | ramen |
 
 5. What is the most purchased item on the menu and how many times was it purchased by all customers?
 Query:
@@ -185,7 +203,10 @@ GROUP BY sales.customer_id;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/9ea8a814-7433-4267-b8ef-a9fc896ae96d)
+| customer_id | purchase_count |
+| A | 3 |
+| B | 2 |
+| C | 3 |
 
 7. Which item was the most popular for each customer?
 Query:
@@ -206,7 +227,13 @@ where rank_num=1 ;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/11395db8-afe6-4a5a-89cc-f6b7f358eb07)
+| customer_id | product_name |
+| --- | --- |
+| A | ramen |
+| B | sushi |
+| B | curry |
+| B | ramen |
+| C | ramen |
 
 9.  Which item was purchased first by the customer after they became a member?
 Query:
@@ -223,7 +250,10 @@ where rank=1;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/356f06e9-c36c-4a14-b8fa-f916b35ff08b)
+| customer_id | product_name |
+| --- | --- |
+| A | ramen |
+| B | sushi |
 
 10.  Which item was purchased just before the customer became a member?
 Query:
@@ -240,7 +270,11 @@ where rank=1;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/4317310b-5d02-4278-a59e-da2c84d987ec)
+| customer_id | product_name |
+| --- | --- |
+| A | sushi |
+| A | curry |
+| B | curry |
 
 11.  What is the total items and amount spent for each member before they became a member?
 Query:
@@ -254,7 +288,10 @@ group by sales.customer_id;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/2861d4f6-5dee-4d7c-91e2-712005d03fb9)
+| customer_id | count | sum |
+| --- | --- | --- |
+| B | 3 | 40 |
+| A | 2 | 25 |
 
 12.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 Query:
@@ -271,7 +308,11 @@ ORDER BY customer_id;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/89a941d1-d1c1-43ec-801d-4c228a04b539)
+| customer_id | customer_points |
+| --- | --- |
+| A | 860 |
+| B | 940 |
+| C | 360 |
 
 13.  In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 Query:
@@ -289,5 +330,8 @@ ORDER BY sales.customer_id;
 ````
 Result:
 
-![image](https://github.com/shrek-28/8-Week-SQL-Challenge/assets/122817076/8879765e-b6de-47e4-ab69-d176bd94e0e9)
+| customer_id | customer_points |
+| A | 1520 |
+| B | 1240 |
+
 
